@@ -27,3 +27,27 @@ console.log(add(10, 30));
 console.log(sum(20, 30));
 console.log(addOne(3));
 console.log(addRandom());
+
+
+const person = {
+    name: 'Max',
+    age: 29,
+    greet() {
+        console.log('Hi, I am ' + this.name);
+    }
+};
+
+console.log(person);
+console.log(person.greet());
+
+const hobbies = ['Sports', 'Cooking'];
+
+for (let hobby of hobbies) {
+    console.log(hobby);
+}
+
+console.log(hobbies.map(hobby => {
+    return 'Hobby: '+ hobby;
+}));
+
+console.log(hobbies);
