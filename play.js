@@ -51,3 +51,35 @@ console.log(hobbies.map(hobby => {
 }));
 
 console.log(hobbies);
+hobbies.push('Programming');
+console.log(hobbies);
+
+const copiedArray = hobbies.slice();
+console.log(copiedArray);
+
+//new array
+const copiedArray1 = [hobbies];
+console.log(copiedArray1);
+
+// copy array using spread operator
+const copiedArraySpread = [...hobbies];
+console.log(copiedArraySpread);
+
+// spread operator
+const copiedPerson = {...person};
+console.log(copiedPerson);
+
+
+const toArray = (arg1, arg2, arg3) => {
+    return [arg1, arg2, arg3];
+};
+
+console.log(toArray(1, 2, 3));
+
+// rest operator
+
+const toArrayRestOperator = (...args) => {
+    return args;
+};
+
+console.log(toArrayRestOperator(1, 2, 3, 4));
