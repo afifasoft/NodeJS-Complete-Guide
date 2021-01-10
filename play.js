@@ -104,3 +104,61 @@ console.log(name, age);
 
 const [hobby1, hobby2] = hobbies;
 console.log(hobby1, hobby2);
+
+// callback fun
+const fetchData = (callback) => {
+    setTimeout(() => {
+        callback('fetchData: Done!');
+    }, 1500);
+}
+
+// promise
+const fetchData1 = () => {
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('fetchData1: Done!');
+        }, 1500);
+    });
+   return promise;
+}
+
+// Async code
+setTimeout(() => {
+    console.log('fetchData: Timer is done!');
+    fetchData((text) => {
+        console.log( text);
+    });
+}, 2000);
+
+setTimeout(() => {
+    console.log('fetchData1: Timer is Done!');
+    fetchData1().then((text) => {
+        console.log(text);
+    });
+}, 2000);
+
+setTimeout(() => {
+    console.log('fetchData1: Timer is Done! nested');
+    fetchData1().then((text) => {
+        console.log(text);
+        return fetchData1().then(text2 => {
+            console.log(text2);
+        })
+    });
+}, 2000);
+
+// more readable
+setTimeout(() => {
+    console.log('fetchData1: Timer is Done! nested2');
+    fetchData1().then(text => {
+        console.log('-------')
+        console.log(text);
+        return fetchData1();
+    }).then(text2 => {
+        console.log(text2);
+    });
+}, 2000);
+
+
+console.log('Hello!');
+console.log('Hi!');
